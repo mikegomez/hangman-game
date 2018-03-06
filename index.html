@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+
+</head>
+<body>
+    <h1>Hangman Game</h1>
+
+    <script>
+    
+        var words = ['birds', 'cow']
+    
+        var word = words[Math.floor(Math.random ())];
+    
+        var answerArray = [];
+        for (i = 0; i< word.length; i++) {
+            answerArray[i] = "_";
+        }
+    
+        var remainingLetters = word.length;
+    //game loop
+        while (remainingLetters > 0) {
+            alert(answerArray.join(" "));
+    
+            var guess = prompt("Guess a letter");
+            if (guess == null) {
+                break;
+             } else if (guess.length !==1) {
+                    alert("Pick a letter");
+               }  else {
+    
+                        //udpate game status
+                        for (var i =0; i< word.length; i++){
+                            if (word[i] === guess) {
+                                answerArray[i] = guess;
+                                remainingLetters--;
+                            }
+                        }
+                    }
+                }
+            
+     
+    alert(answerArray.join(" "));
+    alert("Good job! The answer is " + word);
+        
+        
+        </script>
+
+</body>
+</html>
