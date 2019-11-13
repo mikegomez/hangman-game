@@ -5,50 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hangman</title>
-
+    <link rel="stylesheet" href="./hMan.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="hang.js"></script>
 </head>
 <body>
-    <h1>Hangman Game</h1>
+        <div class="container">
+        <div class="jumbotron">
+                <h1 id="one">Hangman Game</h1>
+                <h2>Guess the character?!?!?!</h2>
+                <!-- <div class="row">
+                        <div class="col">col-sm-8
+                <div class="col">col-sm-4</div>
+                </div> -->
+            </div>
+            </div>
+                
+        <div class="container d-block">
+        <div class="jumbotron float-right">
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Pick a letter!</h2>
+                    <p>Current Word:</p>
+                    <p>Letters Guessed</p>
+                    <p id="lettersGuessed"></p>
+                </div>
+                <div class="col-sm">
+                    <p>Wins:</p>
+                    <p>Guesses Left:</p>
+                    <p id="guessesLeft"></p>
 
-    <script>
-    
-        var words = ['bird', 'cow']
-    
-        var word = words[Math.floor(Math.random ())];
-    
-        var answerArray = [];
-        for (i = 0; i< word.length; i++) {
-            answerArray[i] = "_";
-        }
-    
-        var remainingLetters = word.length;
-    //game loop
-        while (remainingLetters > 0) {
-            alert(answerArray.join(" "));
-    
-            var guess = prompt("Guess a letter");
-            if (guess == null) {
-                break;
-             } else if (guess.length !==1) {
-                    alert("Pick a letter");
-               }  else {
-    
-                        //udpate game status
-                        for (var i =0; i< word.length; i++){
-                            if (word[i] === guess) {
-                                answerArray[i] = guess;
-                                remainingLetters--;
-                            }
-                        }
-                    }
-                }
-            
-     
-    alert(answerArray.join(" "));
-    alert("Good job! The answer is " + word);
-        
-        
-        </script>
+                  
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container block">
+
+        <div class="jumbotron float-md-right">
+                <div id="imagePic">fdsafda</div>
+            </div>
+        </div> 
 
 </body>
 </html>

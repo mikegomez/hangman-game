@@ -1,0 +1,25 @@
+/* #imagePic {
+    background-color: rgb(61, 32, 165);
+} */
+
+html, body {
+    background-image: url("./assets/796424-beautiful-fun-desktop-backgrounds-1920x1080-for-macbook.jpg");
+      /* Full height */
+      /* height: 100%;
+  Center and scale the image nicely */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover;  */
+}  
+
+.jumbotron {
+    opacity: 80%;
+}
+
+.bird {
+    float: right
+}
+
+h1, h2, h4 {
+    text-align: center;
+}
