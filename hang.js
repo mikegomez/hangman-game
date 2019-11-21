@@ -1,36 +1,72 @@
  
-    var words = ['bird', 'cow', 'trees'];
+    let words = ['bird', 'cow', 'trees'];
     
-    var word = words[Math.floor(Math.random() * 3)];        
+    let word = words[Math.floor(Math.random() * 3)];        
     console.log(word);
-    var answerArray = [];
+    let guessesLeft = word.length;
+    console.log(guessesLeft);
+    let wins = 0;
+    let losses = 0;
+    let answerArray = [];
+    let letterToGuess = null;
+
 
     // Next, we give JavaScript a function to execute when onkeyup event fires.
-    document.addEventListener('keydown', event => {
+    document.addEventListener('keydown', event => {      
 
         let userText = document.getElementById('lettersGuess');
-        let a = [];
+        let guessedLetters = [];
         let letterPress = event.key;
-        // a.push(letterPress);
-        // a.splice(', ');
         console.log(letterPress);
-
-        // b.join(', ');
-      userText.textContent = letterPress;
+        // a.push(userGuess);
+        userText.textContent = letterPress;
     
-        
-    
+        let bb = [];
         for (i = 0; i < word.length; i++) {
-            let beez = document.getElementById('displayWordz');
-        let x = answerArray[i] = "_"; 
+            bb[i] = "_ "; 
+              }
 
-                beez.innerText = x;
-              
-          }
-          console.log(answerArray);
-               
+        //    let userGuess =  String.fromCharCode(event.keyCode);
 
-        });
+        //    a.push(letterPress);
+
+           let updateGuess = function() {
+             
+                  console.log(bb);
+        
+               document.querySelector('#displayWordz').innerHTML = bb;
+           };
+
+            let updateGuessesSoFar = function(){
+
+                document.querySelector('#lettersGuess').innerHTML = answerArray.join(' ');
+
+            }
+
+updateGuess();
+updateGuessesSoFar();
+
+
+document.onkeyup = function(event) {
+    guessesLeft--;
+  var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+  answerArray.push(userGuess);
+  updateGuessesSoFar();
+
+if (guessesLeft > 0){
+    if (userGuess == letterToGuess){
+        wins++;
+        document.querySelector('#win').innerHTML = "Wins: " + wins;
+        reset();
+    }
+
+}
+}
+    })
+
+        
+
 
         // while (word.length < letter){
         //     add to #thispart
@@ -41,13 +77,13 @@
         //     restart
         // }
 
-    // var remainingLetters = word.length;
+    // let remainingLetters = word.length;
     // //game loop
 
     //     while (remainingLetters > 0) {
     //         return(answerArray.join(" "));
     
-    //         var guess = prompt("Guess a letter");
+    //         let guess = prompt("Guess a letter");
 
     //         if (guess == null) {
     //             break;
@@ -55,7 +91,7 @@
     //                 return("Pick a letter");
     //         }  else {
     //             //udpate game status
-    //          for (var i =0; i< word.length; i++){
+    //          for (let i =0; i< word.length; i++){
     //                 if (word[i] === guess) {
     //                     answerArray[i] = guess;
     //                     remainingLetters--;
